@@ -1,0 +1,135 @@
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="exponential.js"></script>
+<script src="C:/Users/Acer/Desktop/CPU scheduling/java.js"></script>
+<div>
+    <section class="home" id="home">
+        <h1 class="tit" ><i> CPU Scheduling Algorithms </i></h1>
+      </section>
+  <div>
+    Select Algorithm:
+    <form id="algorithm">
+      <input type="radio" name="algorithm" value="fcfs" /> FCFS<br/>
+      <input type="radio" name="algorithm" value="sjf"/> SJF<br/>
+      <input type="radio" name="algorithm" value="priority"/> Priority scheduling<br/>
+      <input type="radio" name="algorithm" value="robin"/> Round Robin
+    </form>
+    <br>
+  </div>
+
+    <table id="inputTable">
+        <tr>
+            <th>Process</th>
+            <th>Arrival Time</th>
+            <th>Execute Time</th>
+            <th class="servtime">Service Time</th>
+            <th class="priority-only">Priority</th>
+        </tr>
+        <tr>
+            <td>P0</td>
+            <td>0</td>
+            <td><input class="initial exectime" type="text" value="5" /></td>
+            <td class="servtime"></td>
+            <td class="priority-only initial"><input type="text"/></td>
+        </tr>
+        <tr>
+            <td>P1</td>
+            <td>1</td>
+            <td><input class="initial exectime" value="3" /></td>
+            <td class="servtime"></td>
+            <td class="priority-only" ><input type="text"/></td>
+        </tr>
+    </table>
+
+    </div>
+    <input type="button" value="+" onclick="addRow();" />
+    <input type="button" value="-" onclick="deleteRow();" />
+<div>
+  </div>    
+    <p id="quantumParagraph" hidden>Quantum: 
+        <input style="width: 50px;" id="quantum" type="text" value="3" />
+    </p>
+    <input type="button" value="Go" onclick="draw();" />
+    <br/><br/>
+
+    <fresh>
+    </fresh>
+    <p>
+    Timer: <strong id="timer"></strong> sec
+    </p>
+    <!DOCTYPE html>
+    <html>
+    <head>
+
+
+    <style>
+    body {
+background-image:-webkit-linear-gradient(#fffdfd, #e6e6fd);
+}
+    fresh th {
+    background: linear-gradient(rgb(12, 4, 167), rgb(221, 217, 217));
+    text-align: left;
+    border: 1px solid black;
+    height: 400 px;
+}
+fresh td {
+    border: 1px solid black;
+    border-bottom: 0;
+    /*border-right: 0;*/
+    height: 20px;
+    text-align: left;
+}
+
+div th, div td {
+    border: 2px solid rgb(12, 0, 71);
+    text-align: center;
+}
+table {
+    display: inline;
+    border-collapse: collapse;
+}
+input {
+    text-align: center;
+}
+#curtain {
+background-color: rgb(255, 255, 255);
+}
+section{
+	padding: 60px 18%;
+}
+.home{
+	position: relative;
+	width: 70%;
+	height: 50vh;
+	background: url(cpu1.png);
+	background-size: cover;
+	background-position: center;
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	align-items: center;
+}
+.home-text{
+    margin-top: -400px;
+    
+}
+.home-text h1{
+	font: size 100%;
+	line-height: 2;
+	color: var(--bg-color);
+	font-family: 'Paytone One', sans-serif;
+	letter-spacing: 4px;
+	margin-bottom: 40px;
+}
+.tit{
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px  #0000007e;
+    font-size: 50px;
+    margin: 125px 40px 20px -200px;
+    padding: 0 10px 5px;
+    
+}
+</style>
